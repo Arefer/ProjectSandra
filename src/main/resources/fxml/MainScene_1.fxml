@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="500" minWidth="890" prefHeight="479.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kevin.projectsandra.MainSceneController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Archivo">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem fx:id="open" mnemonicParsing="false" onAction="#openHandler" text="Abrir…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cerrar" />
+            <MenuItem mnemonicParsing="false" text="Guardar" />
+            <MenuItem mnemonicParsing="false" onAction="#saveAsHandler" text="Guardar como…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferencias..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Salir del programa" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Undo" />
+                <MenuItem mnemonicParsing="false" text="Redo" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Cut" />
+                <MenuItem mnemonicParsing="false" text="Copy" />
+                <MenuItem mnemonicParsing="false" text="Paste" />
+                <MenuItem mnemonicParsing="false" text="Delete" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Select All" />
+                <MenuItem mnemonicParsing="false" text="Unselect All" />
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <GridPane fx:id="mainGrid" gridLinesVisible="true" layoutX="59.0" layoutY="32.0" prefHeight="450.0" prefWidth="787.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="-1.0" minHeight="10.0" prefHeight="392.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="120" minHeight="120" prefHeight="120" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <top>
+                     <Label text="MODIFICADA" textFill="#5737e5" BorderPane.alignment="CENTER">
+                        <font>
+                           <Font size="24.0" />
+                        </font></Label>
+                  </top>
+                  <center>
+                     <BorderPane fx:id="hb01">
+                          <ImageView fx:id="edgedImageViewer" />
+                      </BorderPane>
+                  </center>
+                </BorderPane>
+                <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <top>
+                     <Label text="ORIGINAL" textFill="#5737e5" BorderPane.alignment="CENTER">
+                        <font>
+                           <Font size="24.0" />
+                        </font></Label>
+                  </top>
+                  <center>
+                      <BorderPane fx:id="hb00">
+                          <ImageView fx:id="originalImageViewer" />
+                      </BorderPane>
+                  </center>
+                </BorderPane>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                    <children>
+                        <HBox alignment="CENTER">
+                            <Label alignment="TOP_CENTER" text="Detección de bordes" />
+                            <Slider fx:id="threshHighSlider" blockIncrement="0.05f" centerShape="false" max="1f" min="0.05f" HBox.hgrow="ALWAYS">
+                                <padding><Insets left="10" right="10" /></padding>
+                            </Slider>
+                        </HBox>
+                        <HBox alignment="CENTER">
+                            <Label alignment="TOP_CENTER" text="Factor de segmentación" />
+                            <Slider fx:id="segmentFactorSlider" blockIncrement="1" centerShape="false" max="10" min="0" HBox.hgrow="ALWAYS">
+                                <padding><Insets left="10" right="10" /></padding>
+                            </Slider>
+                        </HBox>
+                    </children>
+                </VBox>
+            </GridPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
